@@ -1,21 +1,32 @@
-import * as React from 'react'
+import { useState } from "react";
+import html2canvas from "html2canvas";
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+const useScreenshot = ref => {
+  const [image, setImage] = useState(null);
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
-    }
-  }, [])
+  const takeScreenShot = () => {
+    html2canvas(ref.current).then(canvas => {
+      const croppedCanvas = document.createElement("canvas");
+      const croppedCanvasContext = croppedCanvas.getContext("2d");
 
-  return counter
-}
+      // init data
+      const cropPositionTop = 0;
+      const cropPositionLeft = 0;
+      const cropWidth = canvas.width;
+      const cropHeight = canvas.height;
+
+      croppedCanvas.width = cropWidth;
+      croppedCanvas.height = cropHeight;
+
+      croppedCanvasContext.drawImage(canvas, cropPositionLeft, cropPositionTop);
+
+      const image = croppedCanvas.toDataURL();
+
+      setImage(image);
+    });
+  };
+
+  return [image, takeScreenShot];
+};
+
+export { useScreenshot };
