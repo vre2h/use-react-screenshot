@@ -5,9 +5,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "html2canvas": "^1.0.0-rc.5",
     "prop-types": "^15.6.2",
     "react": "file:../node_modules/react",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.0.1",
     "use-react-screenshot": "file:.."
   },
