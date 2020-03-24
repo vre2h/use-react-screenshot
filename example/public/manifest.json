@@ -1,0 +1,8 @@
+{
+  "short_name": "use-react-screenshot",
+  "name": "use-react-screenshot",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
