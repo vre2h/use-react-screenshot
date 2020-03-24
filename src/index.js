@@ -1,32 +1,73 @@
-import { useState } from "react";
-import html2canvas from "html2canvas";
+import { useState } from 'react'
+import html2canvas from 'html2canvas'
 
-const useScreenshot = ref => {
-  const [image, setImage] = useState(null);
+/**
+ * Hook return
+ * @typedef {Array} HookReturn
+ * @property {string} HookReturn[0] - image string
+ * @property {string} HookReturn[1] - take screen shot string
+ * @property {object} HookReturn[2] - errors
+ */
 
-  const takeScreenShot = () => {
-    html2canvas(ref.current).then(canvas => {
-      const croppedCanvas = document.createElement("canvas");
-      const croppedCanvasContext = croppedCanvas.getContext("2d");
+/**
+ * hook for creating screenshot from html node
+ * @returns {HookReturn}
+ */
+const useScreenshot = () => {
+  const [image, setImage] = useState(null)
+  const [error, setError] = useState(null)
 
-      // init data
-      const cropPositionTop = 0;
-      const cropPositionLeft = 0;
-      const cropWidth = canvas.width;
-      const cropHeight = canvas.height;
+  /**
+   * convert html node to image
+   * @param {HTMLElement} node
+   */
+  const takeScreenShot = node => {
+    if (!node) {
+      throw new Error('You should provide correct html node.')
+    }
 
-      croppedCanvas.width = cropWidth;
-      croppedCanvas.height = cropHeight;
+    html2canvas(node)
+      .then(canvas => {
+        const croppedCanvas = document.createElement('canvas')
+        const croppedCanvasContext = croppedCanvas.getContext('2d')
 
-      croppedCanvasContext.drawImage(canvas, cropPositionLeft, cropPositionTop);
+        // init data
+        const cropPositionTop = 0
+        const cropPositionLeft = 0
+        const cropWidth = canvas.width
+        const cropHeight = canvas.height
 
-      const image = croppedCanvas.toDataURL();
+        croppedCanvas.width = cropWidth
+        croppedCanvas.height = cropHeight
 
-      setImage(image);
-    });
-  };
+        croppedCanvasContext.drawImage(
+          canvas,
+          cropPositionLeft,
+          cropPositionTop
+        )
 
-  return [image, takeScreenShot];
-};
+        const image = croppedCanvas.toDataURL()
 
-export { useScreenshot };
+        setImage(image)
+      })
+      .catch(setError)
+  }
+
+  return [
+    image,
+    takeScreenShot,
+    {
+      error
+    }
+  ]
+}
+
+/**
+ * creates name of file
+ * @param {string} extension
+ * @param  {[string]} parts of file name
+ */
+const createFileName = (extension = '', ...names) =>
+  `${names.join('')}.${extension}`
+
+export { useScreenshot, createFileName }

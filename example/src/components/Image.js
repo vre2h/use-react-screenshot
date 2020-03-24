@@ -4,13 +4,15 @@ import { useScreenshot } from 'use-react-screenshot'
 
 export default () => {
   const ref = createRef(null)
-  const [image, takeScreenShot] = useScreenshot(ref)
+  const [image, takeScreenShot] = useScreenshot()
   const [width, setWidth] = useState(300)
+
+  const getImage = () => takeScreenShot(ref.current)
 
   return (
     <div>
       <div>
-        <button style={{ marginBottom: '10px' }} onClick={takeScreenShot}>
+        <button style={{ marginBottom: '10px' }} onClick={getImage}>
           Take screenshot
         </button>
         <label style={{ display: 'block', margin: '10px 0' }}>
