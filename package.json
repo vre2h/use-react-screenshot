@@ -22,7 +22,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "html2canvas": "1.0.0-rc.5"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
