@@ -1,6 +1,6 @@
 {
   "name": "use-react-screenshot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "hook which allows to create screenshots",
   "author": "vre2h",
   "license": "MIT",

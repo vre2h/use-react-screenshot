@@ -47,7 +47,7 @@ const useScreenshot = () => {
         )
 
         const image = croppedCanvas.toDataURL()
-        console.log('image')
+
         setImage(image)
         return image
       })
