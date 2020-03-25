@@ -17,18 +17,16 @@ import html2canvas from 'html2canvas'
 const useScreenshot = () => {
   const [image, setImage] = useState(null)
   const [error, setError] = useState(null)
-
   /**
    * convert html node to image
    * @param {HTMLElement} node
    */
-  const takeScreenShot = node => {
+  const takeScreenShot = (node) => {
     if (!node) {
       throw new Error('You should provide correct html node.')
     }
-
     return html2canvas(node)
-      .then(canvas => {
+      .then((canvas) => {
         const croppedCanvas = document.createElement('canvas')
         const croppedCanvasContext = croppedCanvas.getContext('2d')
         // init data
@@ -43,13 +41,13 @@ const useScreenshot = () => {
         croppedCanvasContext.drawImage(
           canvas,
           cropPositionLeft,
-          cropPositionTop
+          cropPositionTop,
         )
 
-        const image = croppedCanvas.toDataURL()
+        const base64Image = croppedCanvas.toDataURL()
 
-        setImage(image)
-        return image
+        setImage(base64Image)
+        return base64Image
       })
       .catch(setError)
   }
@@ -58,8 +56,8 @@ const useScreenshot = () => {
     image,
     takeScreenShot,
     {
-      error
-    }
+      error,
+    },
   ]
 }
 
@@ -68,7 +66,12 @@ const useScreenshot = () => {
  * @param {string} extension
  * @param  {string[]} parts of file name
  */
-const createFileName = (extension = '', ...names) =>
-  extension ? `${names.join('')}.${extension}` : ''
+const createFileName = (extension = '', ...names) => {
+  if (!extension) {
+    return ''
+  }
+
+  return `${names.join('')}.${extension}`
+}
 
 export { useScreenshot, createFileName }

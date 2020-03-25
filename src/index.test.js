@@ -1,5 +1,6 @@
+import { renderHook } from '@testing-library/react-hooks'
+
 import { createFileName, useScreenshot } from './index'
-import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('checking file name', () => {
   test('should be empty', () => {
@@ -20,7 +21,7 @@ describe('checking file name', () => {
 describe('useScreenshot', () => {
   test('correct working of hook', async () => {
     const {
-      result: { current }
+      result: { current },
     } = renderHook(() => useScreenshot())
     const [image, takeScreenShot, { error }] = current
 
