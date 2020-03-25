@@ -34,8 +34,8 @@ import { useScreenshot } from 'use-react-screenshot'
 
 export default () => {
   const ref = createRef(null)
-  const [image, takeScreenShot] = useScreenshot()
-  const getImage = () => takeScreenShot(ref.current)
+  const [image, takeScreenshot] = useScreenshot()
+  const getImage = () => takeScreenshot(ref.current)
   return (
     <div>
       <div>
@@ -43,7 +43,7 @@ export default () => {
           Take screenshot
         </button>
       </div>
-      <img width={width} src={image} alt={'ScreenShot'} />
+      <img width={width} src={image} alt={'Screenshot'} />
       <div ref={ref}>
         <h1>use-react-screenshot</h1>
         <p>
