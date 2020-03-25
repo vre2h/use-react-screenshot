@@ -19,7 +19,8 @@
     "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "docs": "npx jsdoc --readme ./README.md --destination ./docs src/"
   },
   "peerDependencies": {
     "react": "^16.9.0",

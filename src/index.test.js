@@ -1,4 +1,4 @@
-import { createFileName, useScreenshot } from './'
+import { createFileName, useScreenshot } from './index'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('checking file name', () => {
