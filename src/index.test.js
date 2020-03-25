@@ -1,29 +1,32 @@
-import { useMyHook } from './'
-import { renderHook, act } from "@testing-library/react-hooks";
+import { createFileName, useScreenshot } from './'
+import { renderHook, act } from '@testing-library/react-hooks'
 
-// mock timer using jest
-jest.useFakeTimers();
+describe('checking file name', () => {
+  test('should be empty', () => {
+    const actual = createFileName('', 'name')
+    const expected = ''
 
-describe('useMyHook', () => {
-  it('updates every second', () => {
-    const { result } = renderHook(() => useMyHook());
+    expect(actual).toBe(expected)
+  })
 
-    expect(result.current).toBe(0);
+  test('should work properly', () => {
+    const actual = createFileName('jpg', 'name')
+    const expected = 'name.jpg'
 
-    // Fast-forward 1sec
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
+    expect(actual).toBe(expected)
+  })
+})
 
-    // Check after total 1 sec
-    expect(result.current).toBe(1);
+describe('useScreenshot', () => {
+  test('correct working of hook', async () => {
+    const {
+      result: { current }
+    } = renderHook(() => useScreenshot())
+    const [image, takeScreenShot, { error }] = current
 
-    // Fast-forward 1 more sec
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-
-    // Check after total 2 sec
-    expect(result.current).toBe(2);
+    expect(error).toEqual(null)
+    expect(image).toEqual(null)
+    await expect(() => takeScreenShot()).toThrow()
+    expect(error).toEqual(null)
   })
 })

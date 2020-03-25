@@ -26,11 +26,10 @@ const useScreenshot = () => {
       throw new Error('You should provide correct html node.')
     }
 
-    html2canvas(node)
+    return html2canvas(node)
       .then(canvas => {
         const croppedCanvas = document.createElement('canvas')
         const croppedCanvasContext = croppedCanvas.getContext('2d')
-
         // init data
         const cropPositionTop = 0
         const cropPositionLeft = 0
@@ -47,8 +46,9 @@ const useScreenshot = () => {
         )
 
         const image = croppedCanvas.toDataURL()
-
+        console.log('image')
         setImage(image)
+        return image
       })
       .catch(setError)
   }
@@ -68,6 +68,6 @@ const useScreenshot = () => {
  * @param  {[string]} parts of file name
  */
 const createFileName = (extension = '', ...names) =>
-  `${names.join('')}.${extension}`
+  extension ? `${names.join('')}.${extension}` : ''
 
 export { useScreenshot, createFileName }
