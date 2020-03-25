@@ -8,13 +8,13 @@ _Hook which allows to create screenshots_
 
 Note, this package has as `peerDependencies`: `react` and `html2canvas`. As we assume that you already have `react` installed, you can just install `html2canvas`.
 
-Option 1:
+### Option 1:
 
 ```bash
 npm install-peerdeps --save use-react-screenshot
 ```
 
-Option 2:
+### Option 2:
 
 ```bash
 npm install --save react html2canvas use-react-screenshot
