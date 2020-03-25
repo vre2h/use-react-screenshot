@@ -2,7 +2,7 @@
 
 _hook which allows to create screenshots_
 
-[![NPM](https://img.shields.io/npm/v/use-react-screenshot.svg)](https://www.npmjs.com/package/use-react-screenshot) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-react-screenshot.svg)](https://www.npmjs.com/package/use-react-screenshot) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Maintainability](https://api.codeclimate.com/v1/badges/4eed8edefb50d41a2093/maintainability)](https://codeclimate.com/github/vre2h/use-react-screenshot/maintainability)
 
 ## Install
 
