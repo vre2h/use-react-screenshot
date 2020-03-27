@@ -1,23 +1,21 @@
 # Create react screenshot
 
-_Hook which allows to create screenshots_
+_React hook which allows you to make component screenshot and get an image._
 
-[![NPM](https://img.shields.io/npm/v/use-react-screenshot.svg)](https://www.npmjs.com/package/use-react-screenshot) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Maintainability](https://api.codeclimate.com/v1/badges/4eed8edefb50d41a2093/maintainability)](https://codeclimate.com/github/vre2h/use-react-screenshot/maintainability)
+[![NPM](https://img.shields.io/npm/v/use-react-screenshot.svg)](https://www.npmjs.com/package/use-react-screenshot) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://standardjs.com) [![Maintainability](https://api.codeclimate.com/v1/badges/4eed8edefb50d41a2093/maintainability)](https://codeclimate.com/github/vre2h/use-react-screenshot/maintainability)
 
 ## Install
 
 Note, this package has as `peerDependencies`: `react` and `html2canvas`. As we assume that you already have `react` installed, you can just install `html2canvas`.
 
-### Option 1:
-
+To install package run:
 ```bash
-npm install-peerdeps --save use-react-screenshot
+npm install --save use-react-screenshot
 ```
 
-### Option 2:
-
+To install `peerDependencies` run:
 ```bash
-npm install --save react html2canvas use-react-screenshot
+npm install --save react html2canvas
 ```
 
 ## Examples
