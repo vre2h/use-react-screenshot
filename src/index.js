@@ -14,7 +14,7 @@ import html2canvas from 'html2canvas'
  * hook for creating screenshot from html node
  * @returns {HookReturn}
  */
-const useScreenshot = () => {
+const useScreenshot = ({ type, quality } = {}) => {
   const [image, setImage] = useState(null)
   const [error, setError] = useState(null)
   /**
@@ -44,7 +44,7 @@ const useScreenshot = () => {
           cropPositionTop,
         )
 
-        const base64Image = croppedCanvas.toDataURL()
+        const base64Image = croppedCanvas.toDataURL(type, quality)
 
         setImage(base64Image)
         return base64Image
