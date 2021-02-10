@@ -60,7 +60,7 @@ export default () => {
 
 ## License
 
-MIT © [vre2h](https://github.com/vre2h)
+MIT © [vre2h](https://oganisyan.com)
 
 ---
 
