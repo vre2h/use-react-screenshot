@@ -1,6 +1,6 @@
 # Create react screenshot
 
-_React hook which allows you to make component screenshot and get an image._
+_React hook which allows you to make component screenshot and get an image in different extensions._
 
 [![NPM](https://img.shields.io/npm/v/use-react-screenshot.svg)](https://www.npmjs.com/package/use-react-screenshot) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-airbnb-brightgreen.svg)](https://standardjs.com) [![Maintainability](https://api.codeclimate.com/v1/badges/4eed8edefb50d41a2093/maintainability)](https://codeclimate.com/github/vre2h/use-react-screenshot/maintainability)
 
@@ -22,9 +22,14 @@ npm install --save react html2canvas
 
 See this [codesandbox playground](https://codesandbox.io/s/react-screenshot-hook-2jdyt) or `/example` folder if you want to play with hook.
 
+In the following example you can find examples of:
+- Taking screenshot and placing it in your page
+- Downloaded screenshoted part
+- How to use different extensions (see `components/Download.js` page)
+
 ## Usage
 
-_A simple example which allows you to take a screenshot and place it as an image on the page._
+_A simple example which allows you to take a screenshot and place it as an image on the page (also you can download it or use differently, see examples section above)._
 
 ```jsx
 import React, { createRef, useState } from 'react'
