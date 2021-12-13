@@ -1,6 +1,6 @@
 {
   "name": "use-react-screenshot",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "hook which allows to create screenshots",
   "author": "vre2h",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "docs": "npx jsdoc --readme ./README.md --destination ./docs src/"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
+    "react": "^17.0.2",
     "html2canvas": "^1.0.0-rc.5"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
     "eslint-plugin-import": "^2.20.1",
     "gh-pages": "^2.0.1",
     "html2canvas": "^1.0.0-rc.5",
-    "react": "^16.9.0",
+    "react": "^17.0.2",
     "react-scripts": "^3.4.0",
     "react-test-renderer": "^16.9.0",
     "rollup": "^1.1.2",
