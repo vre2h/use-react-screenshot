@@ -16,6 +16,7 @@ import html2canvas from 'html2canvas'
  */
 const useScreenshot = ({ type, quality } = {}) => {
   const [image, setImage] = useState(null)
+  const [taking, setTaking] = useState(false)
   const [error, setError] = useState(null)
   /**
    * convert html node to image
@@ -25,6 +26,7 @@ const useScreenshot = ({ type, quality } = {}) => {
     if (!node) {
       throw new Error('You should provide correct html node.')
     }
+    setTaking(true)
     return html2canvas(node)
       .then((canvas) => {
         const croppedCanvas = document.createElement('canvas')
@@ -47,15 +49,20 @@ const useScreenshot = ({ type, quality } = {}) => {
         const base64Image = croppedCanvas.toDataURL(type, quality)
 
         setImage(base64Image)
+        setTaking(false)
         return base64Image
       })
-      .catch(setError)
+      .catch((takeError) => {
+        setError(takeError)
+        setTaking(false)
+      })
   }
 
   return [
     image,
     takeScreenShot,
     {
+      taking,
       error,
     },
   ]

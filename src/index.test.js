@@ -27,7 +27,9 @@ describe('useScreenshot', () => {
 
     expect(error).toEqual(null)
     expect(image).toEqual(null)
+    expect(taking).toEqual(false)
     await expect(() => takeScreenShot()).toThrow()
     expect(error).toEqual(null)
+    expect(taking).toEqual(false)
   })
 })
