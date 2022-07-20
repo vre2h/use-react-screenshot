@@ -20,12 +20,13 @@ const useScreenshot = ({ type, quality } = {}) => {
   /**
    * convert html node to image
    * @param {HTMLElement} node
+   * @param {Options} html2canvas options
    */
-  const takeScreenShot = (node) => {
+  const takeScreenShot = (node, options = {}) => {
     if (!node) {
       throw new Error('You should provide correct html node.')
     }
-    return html2canvas(node)
+    return html2canvas(node, options)
       .then((canvas) => {
         const croppedCanvas = document.createElement('canvas')
         const croppedCanvasContext = croppedCanvas.getContext('2d')
