@@ -32,11 +32,11 @@ In the following example you can find examples of:
 _A simple example which allows you to take a screenshot and place it as an image on the page (also you can download it or use differently, see examples section above)._
 
 ```jsx
-import React, { createRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useScreenshot } from 'use-react-screenshot'
 
 export default () => {
-  const ref = createRef(null)
+  const ref = useRef(null)
   const [image, takeScreenshot] = useScreenshot()
   const getImage = () => takeScreenshot(ref.current)
   return (
