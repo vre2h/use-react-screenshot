@@ -21,7 +21,7 @@
     "docs": "npx jsdoc --readme ./README.md --destination ./docs src/"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "html2canvas": "^1.3.3"
   },
   "devDependencies": {
