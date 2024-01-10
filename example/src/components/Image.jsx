@@ -1,6 +1,6 @@
 import React, { createRef, useState } from 'react'
-import Text from './Text'
 import { useScreenshot } from 'use-react-screenshot'
+import Text from './Text'
 
 export default () => {
   const ref = createRef(null)
@@ -17,7 +17,7 @@ export default () => {
         </button>
         <label style={{ display: 'block', margin: '10px 0' }}>
           Width:
-          <input value={width} onChange={e => setWidth(e.target.value)} />
+          <input value={width} onChange={(e) => setWidth(e.target.value)} />
         </label>
       </div>
       <img width={width} src={image} alt={'ScreenShot'} />
@@ -26,7 +26,7 @@ export default () => {
         style={{
           border: '1px solid #ccc',
           padding: '10px',
-          marginTop: '20px'
+          marginTop: '20px',
         }}
       >
         <Text />
