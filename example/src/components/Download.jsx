@@ -1,14 +1,14 @@
 import React, { useEffect, createRef } from 'react'
-import Text from './Text'
 import { useScreenshot, createFileName } from 'use-react-screenshot'
+import Text from './Text'
 
 export default () => {
   const ref = createRef(null)
   const [image, takeScreenShot] = useScreenshot()
 
-  const download = (image, { name = 'img', extension = 'png' } = {}) => {
+  const download = (iImage, { name = 'img', extension = 'png' } = {}) => {
     const a = document.createElement('a')
-    a.href = image
+    a.href = iImage
     a.download = createFileName(extension, name)
     a.click()
   }
@@ -29,7 +29,7 @@ export default () => {
         style={{
           border: '1px solid #ccc',
           padding: '10px',
-          marginTop: '20px'
+          marginTop: '20px',
         }}
       >
         <Text />
